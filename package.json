@@ -12,7 +12,10 @@
     "lint": "eslint ."
   },
   "devDependencies": {
+    "@iconify-json/logos": "^1.1.43",
+    "@iconify-json/lucide": "^1.1.200",
     "@nuxt/eslint": "latest",
+    "@nuxt/icon": "^1.1.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "daisyui": "^4.12.10",
     "eslint": "^9.6.0",
