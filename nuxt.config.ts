@@ -5,7 +5,15 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  modules: ["@nuxtjs/tailwindcss"],
+  // components: {
+  //   dirs: [
+  //     {
+  //       path: "~/app/components",
+  //       pathPrefix: false,
+  //     },
+  //   ],
+  // },
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
 
   // build: {
   //   transpile: ["vue-sonner"],
