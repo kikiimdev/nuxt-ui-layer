@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  // css: ["~/style.css"],
   // components: {
   //   dirs: [
   //     {
