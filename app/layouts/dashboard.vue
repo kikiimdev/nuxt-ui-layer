@@ -1,27 +1,34 @@
 <script setup lang="ts">
 import { Toaster } from "vue-sonner";
+import type { UiNav } from "../components/Ui/Nav/UiNavList.vue";
 
-const navigations = [
-  {
-    text: "Dashboard",
-    icon: "lucide:home",
-    link: "/app",
-    exact: true,
-  },
-  {
-    text: "User",
-    icon: "lucide:user",
-    link: "/app/user",
-    exact: false,
-  },
-];
+const props = defineProps<{
+  navigations: UiNav[];
+}>();
+
+// const navigations = [
+//   {
+//     text: "Dashboard",
+//     icon: "lucide:home",
+//     link: "/app",
+//     exact: true,
+//   },
+//   {
+//     text: "User",
+//     icon: "lucide:user",
+//     link: "/app/user",
+//     exact: false,
+//   },
+// ];
 </script>
 
 <template>
   <div>
-    <div class="flex min-h-screen">
+    <div
+      class="flex min-h-screen bg-base-200 overflow-x-hidden sm:overflow-x-clip"
+    >
       <aside
-        class="h-screen sticky top-0 flex flex-col overflow-y-auto border-r-[1px] border-base-200 bg-base-100"
+        class="hidden sm:flex h-screen sticky top-0 flex-col overflow-y-auto border-r-[1px] border-base-300 bg-base-100 min-w-[260px]"
       >
         <!-- Header -->
         <div class="flex justify-between p-2">
@@ -98,7 +105,11 @@ const navigations = [
         <div class="flex justify-between items-center p-2 gap-4">
           <slot name="footer">
             <a class="btn">
-              <img alt="Profile" src="/avatar.png" class="w-8 rounded-full" />
+              <img
+                alt="Profile"
+                src="https://i.pravatar.cc/150?img=11"
+                class="w-8 rounded-full"
+              />
 
               <div class="flex flex-col text-start">
                 <span class="font-bold">User name</span>
@@ -113,7 +124,7 @@ const navigations = [
         </div>
       </aside>
 
-      <div class="flex flex-col grow">
+      <div class="flex flex-col grow p-6">
         <slot />
       </div>
     </div>
