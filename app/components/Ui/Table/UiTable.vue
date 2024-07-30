@@ -19,9 +19,16 @@ const getItemValue = ({
   header: UiTableHeader;
   item: any;
 }) => {
-  const itemValue = item[header.key];
+  const keys = header.key.split(".");
+  let value = item;
+  for (const key of keys) {
+    if (value === undefined) {
+      return undefined;
+    }
+    value = value[key];
+  }
 
-  return itemValue;
+  return value;
 };
 </script>
 
@@ -58,6 +65,7 @@ const getItemValue = ({
           <td
             v-for="header in headers"
             :key="header.key"
+            class="whitespace-nowrap"
             :class="[header.tdClass]"
           >
             <slot
