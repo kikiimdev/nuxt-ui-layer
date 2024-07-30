@@ -5,6 +5,10 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+
+  // experimental: {
+  //   componentIslands: true,
+  // },
   // css: ["~/style.css"],
   // components: {
   //   dirs: [
@@ -14,7 +18,7 @@ export default defineNuxtConfig({
   //     },
   //   ],
   // },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@vueuse/nuxt"],
 
   // build: {
   //   transpile: ["vue-sonner"],
