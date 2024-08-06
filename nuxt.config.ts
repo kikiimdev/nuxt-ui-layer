@@ -18,11 +18,7 @@ export default defineNuxtConfig({
   //     },
   //   ],
   // },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    // "@nuxt/icon",
-    "@vueuse/nuxt",
-  ],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@vueuse/nuxt"],
 
   build: {
     transpile: ["vue-sonner"],
