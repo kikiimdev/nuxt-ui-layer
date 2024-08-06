@@ -4,6 +4,7 @@ export type UiNav = {
   icon: string;
   link: string;
   exact?: boolean;
+  childrens?: UiNav[];
 };
 
 const props = defineProps<{

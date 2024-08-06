@@ -56,6 +56,9 @@ const getItemValue = ({
       </thead>
 
       <tbody>
+        <tr v-if="!items.length" class="text-center opacity-50">
+          <td class="py-10" :colspan="headers.length">Data tidak ditemukan</td>
+        </tr>
         <tr v-for="(item, index) in items" :key="index">
           <!-- <th>
             <label>

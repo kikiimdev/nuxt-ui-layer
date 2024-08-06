@@ -14,11 +14,12 @@ const props = defineProps<{
           {{ title }}
         </slot>
       </h2>
-      <p class="text-sm">
+
+      <div class="text-sm">
         <slot name="default">
           {{ subtitle }}
         </slot>
-      </p>
+      </div>
 
       <slot name="footer">
         <div v-if="$slots['actions']" class="card-actions justify-start mt-2">

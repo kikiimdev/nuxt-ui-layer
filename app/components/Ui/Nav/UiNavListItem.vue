@@ -6,7 +6,9 @@ const props = defineProps<UiNav>();
 
 <template>
   <li>
+    <UiNavListGroup v-if="props.childrens?.length" v-bind="props" />
     <NuxtLink
+      v-else
       :to="link"
       :exact="exact"
       exact-active-class="active hover:!opacity-80"

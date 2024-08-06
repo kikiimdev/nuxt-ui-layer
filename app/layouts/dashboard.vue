@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Toaster } from "vue-sonner";
+// import { Toaster } from "vue-sonner";
 import type { UiNav } from "../components/Ui/Nav/UiNavList.vue";
 
 const props = defineProps<{
@@ -28,81 +28,43 @@ const props = defineProps<{
       class="flex min-h-screen bg-base-200 overflow-x-hidden sm:overflow-x-clip"
     >
       <aside
-        class="hidden sm:flex h-screen sticky top-0 flex-col overflow-y-auto border-r-[1px] border-base-300 bg-base-100 min-w-[260px]"
+        class="hidden sm:flex h-screen sticky top-0 flex-col overflow-y-auto border-r-[1px] border-base-300 bg-base-100 w-72 sm:flex-shrink-0"
       >
         <!-- Header -->
-        <div class="flex justify-between p-2">
-          <!-- Logo -->
-          <a class="btn btn-ghost text-lg">
-            <img alt="Logo" src="/logo.svg" class="h-4" />
-          </a>
+        <slot name="header">
+          <div class="flex justify-between p-2">
+            <!-- Logo -->
+            <a class="btn btn-ghost text-lg">
+              <img alt="Logo" src="/logo.svg" class="h-4" />
+            </a>
 
-          <a class="btn btn-ghost btn-circle text-lg">
-            <Icon name="lucide:settings" />
-          </a>
-        </div>
+            <a class="btn btn-ghost btn-circle text-lg">
+              <Icon name="lucide:settings" />
+            </a>
+          </div>
+        </slot>
 
         <!-- Body -->
-        <div class="flex flex-col border-y border-base-300 px-6 pt-4 grow">
-          <!-- Search input -->
-          <input class="input input-bordered" placeholder="Search..." />
+        <div class="flex flex-col border-t border-base-300 px-6 pt-4">
+          <slot name="body-prepend">
+            <!-- Search input -->
+            <input class="input input-bordered" placeholder="Search..." />
+          </slot>
 
           <!-- Links -->
-          <div class="flex flex-col divide-y divide-base-300">
+          <div
+            class="flex flex-grow flex-col divide-y divide-base-300 w-full h-full"
+          >
             <UiNavList :navigations />
-
-            <ul class="menu px-0 py-4">
-              <li>
-                <a>
-                  <Icon name="logos:github-icon" />
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a>
-                  <Icon name="logos:facebook" />
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a>
-                  <Icon name="logos:youtube-icon" />
-                  Youtube
-                </a>
-              </li>
-            </ul>
-
-            <ul class="menu px-0 py-4">
-              <li>
-                <a>
-                  <Icon name="lucide:truck" />
-                  Deliver
-                </a>
-              </li>
-              <li>
-                <a>
-                  <Icon name="lucide:shopping-bag" />
-                  Products
-                </a>
-              </li>
-              <li>
-                <a>
-                  <Icon name="lucide:store" />
-                  Store
-                </a>
-              </li>
-              <li>
-                <a>
-                  <Icon name="lucide:cherry" />
-                  Fruits
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
 
+        <div class="flex flex-1"></div>
+
         <!-- Footer -->
-        <div class="flex justify-between items-center p-2 gap-4">
+        <div
+          class="flex flex-grow-0 justify-between items-center p-2 gap-4 border-t border-base-300"
+        >
           <slot name="footer">
             <a class="btn">
               <img
@@ -129,7 +91,7 @@ const props = defineProps<{
       </div>
     </div>
 
-    <Toaster closeButton position="top-right" />
+    <!-- <Toaster closeButton position="top-right" /> -->
   </div>
 </template>
 

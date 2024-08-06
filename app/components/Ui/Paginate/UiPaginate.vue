@@ -7,7 +7,7 @@ const props = defineProps<{
 <template>
   <div class="flex items-center justify-between">
     <div class="text-sm">
-      Total: <strong>{{ paginate.total }}</strong>
+      Total: <strong>{{ displayNumber(paginate.total) }}</strong>
     </div>
     <div class="join">
       <button
@@ -18,7 +18,8 @@ const props = defineProps<{
         <Icon name="lucide:arrow-left" />
       </button>
       <button class="join-item btn btn-sm bg-base-100">
-        Page {{ paginate.page }} / {{ paginate.totalPage }}
+        Page {{ displayNumber(paginate.page) }} /
+        {{ displayNumber(paginate.totalPage) }}
       </button>
       <button
         class="join-item btn btn-sm bg-base-100"
