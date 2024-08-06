@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   // experimental: {
   //   componentIslands: true,
   // },
-  // css: ["~/style.css"],
+  // css: ["~/app/assets/styles.css"],
   // components: {
   //   dirs: [
   //     {
@@ -21,8 +21,6 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@vueuse/nuxt"],
 
   build: {
-    transpile: [
-      // "vue-sonner"
-    ],
+    transpile: ["vue-sonner"],
   },
 });
