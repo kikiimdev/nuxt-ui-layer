@@ -23,7 +23,12 @@ const displayValue = (value: any) => {
       isChanged && dropdownClass,
     ]"
   >
-    <div tabindex="0" role="button" :class="[isChanged && 'underline']">
+    <div
+      tabindex="0"
+      role="button"
+      :class="[isChanged && 'underline']"
+      class="opacity-100"
+    >
       {{ isChanged ? displayValue(newValue) : displayValue(value) }}
     </div>
 
@@ -31,7 +36,7 @@ const displayValue = (value: any) => {
       no-padding
       tabindex="0"
       :class="[!isChanged && 'hidden']"
-      class="dropdown-content card card-compact z-[1]"
+      class="dropdown-content card card-compact z-[1] opacity-100"
     >
       <p>
         {{ displayValue(value) }}
