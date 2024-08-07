@@ -7,9 +7,15 @@ const props = defineProps<{
 
 <template>
   <div class="flex flex-col gap-1">
-    <p>{{ title }}</p>
+    <p>
+      <slot name="title">
+        {{ title }}
+      </slot>
+    </p>
     <p class="text-xs opacity-50">
-      {{ subtitle }}
+      <slot name="subtitle">
+        {{ subtitle }}
+      </slot>
     </p>
   </div>
 </template>
