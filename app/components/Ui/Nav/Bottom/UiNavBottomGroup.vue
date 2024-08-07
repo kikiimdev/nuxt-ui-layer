@@ -15,7 +15,7 @@ const isActive = computed(() =>
   </button>
 
   <UiDialog v-model="showDialog" closeOnClickOutside boxClass="w-screen">
-    <ul class="menu bg-base-200 rounded-box w-56">
+    <ul class="menu bg-base-200 rounded-box">
       <li class="menu-title">{{ text }}</li>
       <li v-for="children in childrens" :key="children.link">
         <NuxtLink
