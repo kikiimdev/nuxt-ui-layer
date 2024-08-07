@@ -17,7 +17,12 @@ const displayValue = (value: any) => {
 </script>
 
 <template>
-  <div :class="[isChanged && `dropdown dropdown-hover ${dropdownClass}`]">
+  <div
+    :class="[
+      isChanged && 'dropdown dropdown-hover',
+      isChanged && dropdownClass,
+    ]"
+  >
     <div tabindex="0" role="button" :class="[isChanged && 'underline']">
       {{ isChanged ? displayValue(newValue) : displayValue(value) }}
     </div>
@@ -29,9 +34,9 @@ const displayValue = (value: any) => {
       class="dropdown-content card card-compact z-[1]"
     >
       <p>
-        {{ displayValue(newValue) }}
-        <Icon name="lucide:chevron-right" />
         {{ displayValue(value) }}
+        <Icon name="lucide:chevron-right" />
+        {{ displayValue(newValue) }}
       </p>
     </UiCard>
   </div>
