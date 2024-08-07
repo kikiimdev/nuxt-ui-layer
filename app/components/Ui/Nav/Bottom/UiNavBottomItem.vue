@@ -4,10 +4,10 @@ const props = defineProps<UiNav>();
 </script>
 
 <template>
-  <button>
+  <NuxtLink :to="link">
     <Icon :name="icon" class="w-6 h-6" />
     <span class="btm-nav-label">{{ text }}</span>
-  </button>
+  </NuxtLink>
 </template>
 
 <style></style>

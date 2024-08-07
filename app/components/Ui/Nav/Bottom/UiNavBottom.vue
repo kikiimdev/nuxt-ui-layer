@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
   <div class="btm-nav">
-    <template v-for="navigation in navigations">
+    <template v-for="navigation in navigations" :key="navigation.link">
       <UiNavBottomItem v-bind="navigation" />
     </template>
 
