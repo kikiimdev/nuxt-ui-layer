@@ -26,13 +26,13 @@ const displayValue = (value: any) => {
       :class="[!isChanged && 'hidden']"
       class="dropdown-content card card-compact z-[1] p-2 shadow"
     >
-      <div class="card-body">
-        <p>
+      <UiCard no-padding>
+        <p class="p-2">
           {{ displayValue(newValue) }}
           <Icon name="lucide:chevron-right" />
           {{ displayValue(value) }}
         </p>
-      </div>
+      </UiCard>
     </div>
   </div>
 
