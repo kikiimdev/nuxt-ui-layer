@@ -34,7 +34,7 @@ onMounted(() => {
 <template>
   <details ref="detailsElement" class="dropdown">
     <summary
-      class="m-1 btn btn-sm border border-base-300"
+      class="m-1 btn btn-sm border border-base-300 !flex-nowrap"
       :class="[!!activeLabel ? 'btn-neutral' : 'bg-base-100']"
     >
       <Icon v-if="icon" :name="icon" class="sm:mx-0 sm:-mr-1" />
@@ -43,7 +43,7 @@ onMounted(() => {
       </span>
       <Icon
         :name="showDropdown ? 'lucide:chevron-up' : 'lucide:chevron-down'"
-        class="mx-1 sm:mx-0"
+        class="-mr-1 sm:mx-0"
       />
     </summary>
 
