@@ -16,10 +16,6 @@ const displayValue = (value: any) => {
 </script>
 
 <template>
-  <div :class="[isChanged && 'underline']">
-    {{ isChanged ? displayValue(newValue) : displayValue(value) }}
-  </div>
-
   <div :class="[isChanged && 'dropdown']">
     <div tabindex="0" role="button" :class="[isChanged && 'underline']">
       {{ isChanged ? displayValue(newValue) : displayValue(value) }}
