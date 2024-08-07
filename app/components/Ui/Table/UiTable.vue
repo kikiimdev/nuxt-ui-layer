@@ -25,6 +25,10 @@ const getItemValue = ({
     if (value === undefined) {
       return undefined;
     }
+    if (typeof value !== "object") {
+      return undefined;
+    }
+
     value = value[key];
   }
 
