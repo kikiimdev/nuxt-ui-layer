@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiNav } from "./UiNavList.vue";
+import type { UiNav } from "../UiNavList.vue";
 const props = defineProps<UiNav>();
 </script>
 
