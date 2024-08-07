@@ -37,7 +37,7 @@ onMounted(() => {
       class="m-1 btn btn-sm border border-base-300"
       :class="[!!activeLabel ? 'btn-neutral' : 'bg-base-100']"
     >
-      <Icon v-if="icon" :name="icon" class="mx-1 sm:mx-0 sm:-mr-1" />
+      <Icon v-if="icon" :name="icon" class="sm:mx-0 sm:-mr-1" />
       <span class="hidden sm:block">
         {{ activeLabel || label }}
       </span>
