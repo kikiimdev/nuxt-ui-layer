@@ -25,7 +25,7 @@ const displayValue = (value: any) => {
   >
     <div
       tabindex="0"
-      role="button"
+      :role="isChanged ? 'button' : 'text'"
       :class="[isChanged && 'underline']"
       class="opacity-100"
     >
