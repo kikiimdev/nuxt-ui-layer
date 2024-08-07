@@ -40,10 +40,7 @@ onMounted(() => {
     <details ref="detailsElement" class="dropdown">
       <summary class="m-1 input input-bordered flex items-center gap-2 w-full">
         <Icon v-if="icon" :name="icon" class="mx-1 sm:mx-0 sm:-mr-1" />
-        <span
-          class="sm:flex sm:flex-auto"
-          :class="[!activeLabel ? 'opacity-50' : '']"
-        >
+        <span class="flex-auto" :class="[!activeLabel ? 'opacity-50' : '']">
           {{ activeLabel || label }}
         </span>
         <Icon
