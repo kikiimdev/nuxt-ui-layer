@@ -16,13 +16,15 @@ const displayValue = (value: any) => {
 </script>
 
 <template>
-  <div :class="[isChanged && 'dropdown']">
+  <div :class="[isChanged && 'dropdown dropdown-hover']">
     <div tabindex="0" role="button" :class="[isChanged && 'underline']">
       {{ isChanged ? displayValue(newValue) : displayValue(value) }}
     </div>
+
     <div
       tabindex="0"
-      class="dropdown-content card card-compact bg-primary text-primary-content z-[1] w-64 p-2 shadow"
+      :class="[!isChanged && 'hidden']"
+      class="dropdown-content card card-compact z-[1] p-2 shadow"
     >
       <div class="card-body">
         <p>
