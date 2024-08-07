@@ -22,6 +22,7 @@ const isActive = computed(() =>
           :to="children.link"
           :exact="children.exact"
           exact-active-class="active"
+          @click="showDialog = false"
         >
           <Icon v-if="children.icon" :name="children.icon" />
           {{ children.text }}
