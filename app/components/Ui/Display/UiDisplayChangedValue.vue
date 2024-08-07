@@ -2,6 +2,7 @@
 const props = defineProps<{
   value?: any;
   newValue?: any;
+  dropdownClass?: string;
 }>();
 
 const isChanged = computed(
@@ -16,7 +17,7 @@ const displayValue = (value: any) => {
 </script>
 
 <template>
-  <div :class="[isChanged && 'dropdown dropdown-hover']">
+  <div :class="[isChanged && 'dropdown dropdown-hover' + dropdownClass]">
     <div tabindex="0" role="button" :class="[isChanged && 'underline']">
       {{ isChanged ? displayValue(newValue) : displayValue(value) }}
     </div>
@@ -27,7 +28,7 @@ const displayValue = (value: any) => {
       :class="[!isChanged && 'hidden']"
       class="dropdown-content card card-compact z-[1]"
     >
-      <p class="p-2">
+      <p>
         {{ displayValue(newValue) }}
         <Icon name="lucide:chevron-right" />
         {{ displayValue(value) }}
