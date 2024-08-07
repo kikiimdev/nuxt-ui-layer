@@ -10,8 +10,8 @@ const showDialog = ref(false);
     <span class="btm-nav-label">{{ text }}</span>
   </button>
 
-  <UiDialog v-model="showDialog">
-    <ul>
+  <UiDialog v-model="showDialog" closeOnClickOutside>
+    <ul class="w-full">
       <li v-for="children in childrens" :key="children.link">
         <NuxtLink
           :to="children.link"
