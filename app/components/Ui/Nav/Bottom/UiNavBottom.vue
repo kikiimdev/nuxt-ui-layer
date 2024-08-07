@@ -9,7 +9,8 @@ const props = defineProps<{
 <template>
   <div class="btm-nav">
     <template v-for="navigation in navigations" :key="navigation.link">
-      <UiNavBottomItem v-bind="navigation" />
+      <UiNavBottomGroup v-if="navigation.childrens" v-bind="navigation" />
+      <UiNavBottomItem v-else v-bind="navigation" />
     </template>
 
     <!-- <button class="active">
