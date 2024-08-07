@@ -41,7 +41,7 @@ onMounted(() => {
       <summary class="m-1 input input-bordered flex items-center gap-2 w-full">
         <Icon v-if="icon" :name="icon" class="mx-1 sm:mx-0 sm:-mr-1" />
         <span
-          class="hidden sm:flex sm:flex-auto"
+          class="sm:flex sm:flex-auto"
           :class="[!activeLabel ? 'opacity-50' : '']"
         >
           {{ activeLabel || label }}
