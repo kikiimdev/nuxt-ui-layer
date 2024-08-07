@@ -29,6 +29,10 @@ const getItemValue = ({
       return undefined;
     }
 
+    if (!value?.hasOwnProperty(key)) {
+      return undefined;
+    }
+
     value = value[key];
   }
 
