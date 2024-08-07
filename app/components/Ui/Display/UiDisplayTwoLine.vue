@@ -12,7 +12,7 @@ const props = defineProps<{
         {{ title }}
       </slot>
     </p>
-    <p class="text-xs opacity-50">
+    <p class="text-xs text-opacity-50">
       <slot name="subtitle">
         {{ subtitle }}
       </slot>
