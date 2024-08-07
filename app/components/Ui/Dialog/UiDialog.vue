@@ -2,6 +2,8 @@
 const props = defineProps<{
   title?: string;
   text?: string;
+  closeOnClickOutside?: boolean;
+  boxClass?: string;
 }>();
 
 const modelValue = defineModel<boolean | undefined>({
@@ -18,7 +20,7 @@ const toggleDialog = (isVisible?: boolean) => {
   <input v-model="modelValue" type="checkbox" class="modal-toggle" />
 
   <div class="modal modal-bottom sm:modal-middle" role="dialog">
-    <div class="modal-box">
+    <div class="modal-box" :class="[boxClass]">
       <slot name="default" :toggle-dialog="toggleDialog">
         <header>
           <slot name="title" :toggle-dialog="toggleDialog">
@@ -39,6 +41,14 @@ const toggleDialog = (isVisible?: boolean) => {
         </footer>
       </slot>
     </div>
+
+    <label
+      v-if="closeOnClickOutside"
+      class="modal-backdrop"
+      @click="toggleDialog(false)"
+    >
+      Close
+    </label>
   </div>
 </template>
 
