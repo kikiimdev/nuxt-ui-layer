@@ -91,7 +91,7 @@ const props = defineProps<{
       </div>
     </div>
 
-    <!-- <Toaster closeButton position="top-right" /> -->
+    <Toaster closeButton position="top-right" />
   </div>
 </template>
 
