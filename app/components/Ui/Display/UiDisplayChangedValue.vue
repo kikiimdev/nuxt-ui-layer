@@ -38,7 +38,7 @@ const displayValue = (value: any) => {
       :class="[!isChanged && 'hidden']"
       class="dropdown-content card card-compact z-[1] opacity-100"
     >
-      <p>
+      <p class="flex flex-nowrap items-center">
         {{ displayValue(value) }}
         <Icon name="lucide:chevron-right" />
         {{ displayValue(newValue) }}
