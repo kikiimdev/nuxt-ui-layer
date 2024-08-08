@@ -4,7 +4,7 @@ type Action = {
   onClick?: () => void;
   loading?: boolean;
   text?: string;
-  showLoading?: boolean;
+  // showLoading?: boolean;
 };
 
 type UiDialogActionsProps = {
@@ -23,10 +23,7 @@ const props = defineProps<UiDialogActionsProps>();
       :class="['btn', a.attrs?.class, a.loading && 'pointer-events-none']"
       @click.prevent="() => a?.onClick?.()"
     >
-      <span
-        v-if="a.loading && a.showLoading"
-        class="loading loading-spinner"
-      ></span>
+      <span v-if="a.loading" class="loading loading-spinner"></span>
       {{ a.text }}
     </button>
     <!-- <button
