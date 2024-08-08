@@ -22,7 +22,7 @@ const modelValue = defineModel<any>({});
     >
       <h1 class="text-3xl font-bold self-center">Log in</h1>
 
-      <span class="self-center">
+      <!-- <span class="self-center">
         Don't have an account?
         <a class="link link-secondary">Register</a>
       </span>
@@ -33,7 +33,7 @@ const modelValue = defineModel<any>({});
         Log in with Google
       </a>
 
-      <div class="divider">OR</div>
+      <div class="divider">OR</div> -->
 
       <label
         v-for="form in forms"
