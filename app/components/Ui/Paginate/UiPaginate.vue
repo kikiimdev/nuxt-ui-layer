@@ -30,11 +30,13 @@ const takeOptions: UiInputSelectItem[] = [
     <div class="text-sm">
       Total: <strong>{{ displayNumber(paginate.total) }}</strong>
     </div>
-    <UiInputSelect
-      input-class="input-sm"
-      :items="takeOptions"
-      v-model="paginate.take"
-    />
+    <div>
+      <UiInputSelect
+        input-class="input-sm"
+        :items="takeOptions"
+        v-model="paginate.take"
+      />
+    </div>
     <div class="join">
       <button
         class="join-item btn btn-sm bg-base-100"

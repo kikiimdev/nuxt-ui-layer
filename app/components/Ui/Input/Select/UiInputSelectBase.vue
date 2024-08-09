@@ -54,7 +54,7 @@ onMounted(() => {
       </summary>
 
       <div
-        class="menu dropdown-content bg-base-100 rounded-box z-[1] p-2 shadow max-h-[50vh] flex-nowrap overflow-auto"
+        class="menu dropdown-content dropdown-top bg-base-100 rounded-box z-[1] p-2 shadow max-h-[50vh] flex-nowrap overflow-auto"
       >
         <slot :showDropdown :toggleDropdown />
       </div>
