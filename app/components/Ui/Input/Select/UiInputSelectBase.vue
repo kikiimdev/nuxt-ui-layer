@@ -8,6 +8,7 @@ export type UiInputSelectBaseProps = {
   label?: string;
   icon?: string;
   inputClass?: string;
+  dropdownClass?: string;
 };
 
 const props = defineProps<
@@ -38,7 +39,7 @@ onMounted(() => {
       <span class="label-text">{{ label }}</span>
       <!-- <span class="label-text-alt">Top Right label</span> -->
     </div>
-    <details ref="detailsElement" class="dropdown">
+    <details ref="detailsElement" class="dropdown" :class="[dropdownClass]">
       <summary
         class="mb-1 input input-bordered flex items-center gap-2 w-full"
         :class="[inputClass]"
@@ -54,7 +55,7 @@ onMounted(() => {
       </summary>
 
       <div
-        class="menu dropdown-content dropdown-top bg-base-100 rounded-box z-[1] p-2 shadow max-h-[50vh] flex-nowrap overflow-auto"
+        class="menu dropdown-content bg-base-100 rounded-box z-[1] p-2 shadow max-h-[50vh] flex-nowrap overflow-auto"
       >
         <slot :showDropdown :toggleDropdown />
       </div>
