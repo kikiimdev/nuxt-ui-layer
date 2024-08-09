@@ -7,6 +7,7 @@ export type UiInputSelectItem = {
 export type UiInputSelectBaseProps = {
   label?: string;
   icon?: string;
+  inputClass?: string;
 };
 
 const props = defineProps<
@@ -38,7 +39,10 @@ onMounted(() => {
       <!-- <span class="label-text-alt">Top Right label</span> -->
     </div>
     <details ref="detailsElement" class="dropdown">
-      <summary class="m-1 input input-bordered flex items-center gap-2 w-full">
+      <summary
+        class="mb-1 input input-bordered flex items-center gap-2 w-full"
+        :class="[inputClass]"
+      >
         <Icon v-if="icon" :name="icon" class="mx-1 sm:mx-0 sm:-mr-1" />
         <span class="flex-auto" :class="[!activeLabel ? 'opacity-50' : '']">
           {{ activeLabel || label }}
