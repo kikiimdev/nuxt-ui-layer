@@ -27,7 +27,7 @@ const takeOptions: UiInputSelectItem[] = [
 
 <template>
   <div class="flex items-center justify-between">
-    <div class="flex items-center gap-2">
+    <div class="flex flex-nowrap items-center gap-2">
       <div class="text-sm">
         Total: <strong>{{ displayNumber(paginate.total) }}</strong>
       </div>
