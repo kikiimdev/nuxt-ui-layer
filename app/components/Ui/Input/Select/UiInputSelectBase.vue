@@ -41,11 +41,15 @@ onMounted(() => {
     </div>
     <details ref="detailsElement" class="dropdown" :class="[dropdownClass]">
       <summary
-        class="mb-1 input input-bordered flex items-center gap-2 w-full"
+        class="my-1 input input-bordered flex items-center gap-2 w-full"
         :class="[inputClass]"
       >
         <Icon v-if="icon" :name="icon" class="mx-1 sm:mx-0 sm:-mr-1" />
-        <span class="flex-auto" :class="[!activeLabel ? 'opacity-50' : '']">
+        <span
+          v-if="!!(activeLabel ?? label)"
+          class="flex-auto"
+          :class="[!activeLabel ? 'opacity-50' : '']"
+        >
           {{ activeLabel || label }}
         </span>
         <Icon
