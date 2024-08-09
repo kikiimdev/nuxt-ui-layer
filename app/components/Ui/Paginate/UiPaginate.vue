@@ -27,15 +27,18 @@ const takeOptions: UiInputSelectItem[] = [
 
 <template>
   <div class="flex items-center justify-between">
-    <div class="text-sm">
-      Total: <strong>{{ displayNumber(paginate.total) }}</strong>
-    </div>
     <div>
-      <UiInputSelect
-        input-class="input-sm"
-        :items="takeOptions"
-        v-model="paginate.take"
-      />
+      <div class="text-sm">
+        Total: <strong>{{ displayNumber(paginate.total) }}</strong>
+      </div>
+      <div>
+        <UiInputSelect
+          input-class="input-sm"
+          dropdown-class="dropdown-top"
+          :items="takeOptions"
+          v-model="paginate.take"
+        />
+      </div>
     </div>
     <div class="join">
       <button
