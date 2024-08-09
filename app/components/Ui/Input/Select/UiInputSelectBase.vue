@@ -5,7 +5,7 @@ export type UiInputSelectItem = {
 };
 
 export type UiInputSelectBaseProps = {
-  label: string;
+  label?: string;
   icon?: string;
 };
 
