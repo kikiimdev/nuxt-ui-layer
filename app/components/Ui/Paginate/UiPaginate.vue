@@ -33,7 +33,7 @@ const takeOptions: UiInputSelectItem[] = [
       </div>
       <div>
         <UiInputSelect
-          input-class="input-sm"
+          input-class="input-sm -mt-3"
           dropdown-class="dropdown-top"
           :items="takeOptions"
           v-model="paginate.take"
