@@ -86,7 +86,7 @@ const props = defineProps<{
         </div>
       </aside>
 
-      <div class="flex flex-col grow p-6">
+      <div id="layout-start" class="flex flex-col grow p-6">
         <slot />
       </div>
     </div>
