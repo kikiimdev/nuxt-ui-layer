@@ -7,10 +7,13 @@ export type UiFilterSelectProps = UiFilterBaseProps & {
   onChange?: (value: any) => void;
   items: UiFilterSelectItem[];
   loading?: boolean;
+  removeShowAllOptions?: boolean;
 };
 const props = defineProps<UiFilterSelectProps>();
 
 const _items = computed(() => {
+  if (props.removeShowAllOptions) return props.items;
+
   return [
     {
       label: "Semua",
@@ -49,7 +52,7 @@ useInfiniteScroll(
   },
   {
     distance: 10,
-  },
+  }
 );
 </script>
 
