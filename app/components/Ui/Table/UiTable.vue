@@ -10,6 +10,7 @@ export type UiTableHeader = {
 const props = defineProps<{
   headers: UiTableHeader[];
   items: any[];
+  loading?: boolean;
 }>();
 
 const getItemValue = ({
@@ -64,6 +65,10 @@ const getItemValue = ({
       </thead>
 
       <tbody>
+        <progress
+          v-if="loading"
+          class="progress progress-primary w-full"
+        ></progress>
         <tr v-if="!items.length" class="text-center opacity-50">
           <td class="py-10" :colspan="headers.length">Data tidak ditemukan</td>
         </tr>
