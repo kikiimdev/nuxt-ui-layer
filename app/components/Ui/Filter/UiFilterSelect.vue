@@ -7,12 +7,12 @@ export type UiFilterSelectProps = UiFilterBaseProps & {
   onChange?: (value: any) => void;
   items: UiFilterSelectItem[];
   loading?: boolean;
-  removeShowAllOptions?: boolean;
+  removeShowAll?: boolean;
 };
 const props = defineProps<UiFilterSelectProps>();
 
 const _items = computed(() => {
-  if (props.removeShowAllOptions) return props.items;
+  if (props.removeShowAll) return props.items;
 
   return [
     {
