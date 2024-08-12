@@ -11,6 +11,7 @@ const props = defineProps<{
   headers: UiTableHeader[];
   items: any[];
   loading?: boolean;
+  checkboxKey?: string;
 }>();
 
 const getItemValue = ({
@@ -39,6 +40,46 @@ const getItemValue = ({
 
   return value;
 };
+
+const selectedItems = defineModel<string[]>({
+  required: false,
+  default: [],
+});
+const handleCheck = ({ event, item }: { event: any; item: any }) => {
+  const isChecked = event.target.checked;
+  if (isChecked) {
+    selectedItems.value.push(item[props.checkboxKey!]);
+  } else {
+    selectedItems.value = selectedItems.value.filter(
+      (i) => i !== item[props.checkboxKey!]
+    );
+  }
+};
+const isItemChecked = (item: any) => {
+  return selectedItems.value.includes(item.id);
+};
+const isMultipleItemChecked = computed(() => {
+  const checkboxKeyItems = props.items.map((i) => i[props.checkboxKey!]);
+  return checkboxKeyItems.every((checkboxKeyItem) =>
+    selectedItems.value.includes(checkboxKeyItem)
+  );
+});
+
+const handleMultipleCheck = () => {
+  const checkboxKeyItems = props.items.map((i) => i[props.checkboxKey!]);
+
+  if (!isMultipleItemChecked.value) {
+    selectedItems.value = mergeDedupe([checkboxKeyItems, selectedItems.value]);
+  } else {
+    selectedItems.value = selectedItems.value.filter(
+      (i) => !checkboxKeyItems.includes(i)
+    );
+  }
+};
+
+const mergeDedupe = (arr: any[]) => {
+  return [...new Set([].concat(...arr))];
+};
 </script>
 
 <template>
@@ -51,11 +92,16 @@ const getItemValue = ({
       <!-- head -->
       <thead>
         <tr>
-          <!-- <th>
+          <th v-if="!!checkboxKey">
             <label>
-              <input type="checkbox" class="checkbox" />
+              <input
+                type="checkbox"
+                class="checkbox"
+                :checked="isMultipleItemChecked"
+                @change="handleMultipleCheck()"
+              />
             </label>
-          </th> -->
+          </th>
           <th
             v-for="header in headers"
             :key="header.key"
@@ -73,11 +119,16 @@ const getItemValue = ({
           <td class="py-10" :colspan="headers.length">Data tidak ditemukan</td>
         </tr>
         <tr v-for="(item, index) in items" :key="index">
-          <!-- <th>
+          <th v-if="!!checkboxKey">
             <label>
-              <input type="checkbox" class="checkbox" />
+              <input
+                type="checkbox"
+                class="checkbox"
+                :checked="isItemChecked(item)"
+                @change="handleCheck({ event: $event, item })"
+              />
             </label>
-          </th> -->
+          </th>
           <td
             v-for="header in headers"
             :key="header.key"
