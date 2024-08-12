@@ -43,6 +43,10 @@ const getItemValue = ({
 
 <template>
   <div class="overflow-x-auto">
+    <progress
+      v-show="loading"
+      class="progress progress-primary w-full h-2"
+    ></progress>
     <table class="table">
       <!-- head -->
       <thead>
@@ -65,12 +69,6 @@ const getItemValue = ({
       </thead>
 
       <tbody>
-        <tr v-show="loading">
-          <td :colspan="headers.length">
-            <progress class="progress progress-primary w-full h-2"></progress>
-          </td>
-        </tr>
-
         <tr v-if="!items.length" class="text-center opacity-50">
           <td class="py-10" :colspan="headers.length">Data tidak ditemukan</td>
         </tr>
