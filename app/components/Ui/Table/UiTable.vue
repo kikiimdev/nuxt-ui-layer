@@ -45,7 +45,7 @@ const getItemValue = ({
   <div class="overflow-x-auto">
     <progress
       v-show="loading"
-      class="progress progress-primary w-full h-2"
+      class="progress progress-primary w-full h-1 -mt-2"
     ></progress>
     <table class="table">
       <!-- head -->
