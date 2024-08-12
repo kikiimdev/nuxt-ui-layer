@@ -69,6 +69,14 @@ const isMultipleItemChecked = computed(() => {
     selectedItems.value.includes(checkboxKeyItem)
   );
 });
+const isIndeterminate = computed(() => {
+  const checkboxKeyItems = props.items.map((i) => i[props.checkboxKey!]);
+  return (
+    checkboxKeyItems.some((checkboxKeyItem) =>
+      selectedItems.value.includes(checkboxKeyItem)
+    ) && !isMultipleItemChecked.value
+  );
+});
 
 const handleMultipleCheck = () => {
   const checkboxKeyItems = props.items.map((i) => i[props.checkboxKey!]);
@@ -110,6 +118,7 @@ const mergeDedupe = (arr: any[]) => {
                 type="checkbox"
                 class="checkbox"
                 :checked="isMultipleItemChecked"
+                :indeterminate="isIndeterminate"
                 @change="handleMultipleCheck()"
               />
             </label>
