@@ -65,10 +65,12 @@ const getItemValue = ({
       </thead>
 
       <tbody>
-        <progress
-          v-if="loading"
-          class="progress progress-primary w-full"
-        ></progress>
+        <tr v-show="loading">
+          <td :colspan="headers.length">
+            <progress class="progress progress-primary w-full h-2"></progress>
+          </td>
+        </tr>
+
         <tr v-if="!items.length" class="text-center opacity-50">
           <td class="py-10" :colspan="headers.length">Data tidak ditemukan</td>
         </tr>
