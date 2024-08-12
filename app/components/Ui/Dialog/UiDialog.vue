@@ -19,7 +19,11 @@ const toggleDialog = (isVisible?: boolean) => {
 <template>
   <input v-model="modelValue" type="checkbox" class="modal-toggle" />
 
-  <div class="modal modal-bottom sm:modal-middle" role="dialog">
+  <div
+    v-if="modelValue"
+    class="modal modal-bottom sm:modal-middle"
+    role="dialog"
+  >
     <div class="modal-box" :class="[boxClass]">
       <slot name="default" :toggle-dialog="toggleDialog">
         <header>
