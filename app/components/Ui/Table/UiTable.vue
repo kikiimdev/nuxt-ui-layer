@@ -13,6 +13,8 @@ const props = withDefaults(
     items: any[];
     loading?: boolean;
     checkboxKey?: string;
+    theadClass?: string;
+    tbodyClass?: string;
   }>(),
   {
     //
@@ -103,7 +105,7 @@ const mergeDedupe = (arr: any[]) => {
     ></progress>
     <table class="table">
       <!-- head -->
-      <thead>
+      <thead :class="[theadClass]">
         <tr>
           <th v-if="!!checkboxKey">
             <label
@@ -135,7 +137,7 @@ const mergeDedupe = (arr: any[]) => {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody :class="[tbodyClass]">
         <tr v-if="!items.length" class="text-center opacity-50">
           <td class="py-10" :colspan="headers.length">Data tidak ditemukan</td>
         </tr>
