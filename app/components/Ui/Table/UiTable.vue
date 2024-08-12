@@ -7,12 +7,17 @@ export type UiTableHeader = {
   tdClass?: string;
 };
 
-const props = defineProps<{
-  headers: UiTableHeader[];
-  items: any[];
-  loading?: boolean;
-  checkboxKey?: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    headers: UiTableHeader[];
+    items: any[];
+    loading?: boolean;
+    checkboxKey?: string;
+  }>(),
+  {
+    //
+  }
+);
 
 const getItemValue = ({
   header,
@@ -93,7 +98,14 @@ const mergeDedupe = (arr: any[]) => {
       <thead>
         <tr>
           <th v-if="!!checkboxKey">
-            <label>
+            <label
+              class="tooltip"
+              :data-tip="
+                isMultipleItemChecked
+                  ? `Hilangkan ${items.length} tanda`
+                  : `Tandai ${items.length} data`
+              "
+            >
               <input
                 type="checkbox"
                 class="checkbox"
