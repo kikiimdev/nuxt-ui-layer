@@ -107,7 +107,7 @@ const mergeDedupe = (arr: any[]) => {
         <tr>
           <th v-if="!!checkboxKey">
             <label
-              class="tooltip"
+              class="tooltip tooltip-right"
               :data-tip="
                 isMultipleItemChecked
                   ? `Hilangkan ${items.length} tanda`
